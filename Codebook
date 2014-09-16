@@ -1,0 +1,11 @@
+activity_labels.txt 	values corresponding to the 6 activities	
+dataSamsung		combined test and train data set with column names added including 2 columns for Activity and Subject
+features.txt		variable names for all columns in X_test  file (and X_train)
+Samsung		data set which is reduced to those columns with mean and std deviation data plus Activity and Subject identifiers
+subject_test.txt		identifies the subject corresponding to each row of X_test
+subject_train.txt		identifies the subject corresponding to each row of X_train
+tidySamsung		Samsung dataset grouped by activity and subject and mean applied to the measurements.
+X_test.txt		contains all 561 measurements  for the test subjects
+X_train.txt		contains all 561 measurements  for the train subjects
+y_test.txt		identifies the Activity corresponding to each row in X_test
+y_train.txt		identifies the Activity corresponding to each row in X_train
