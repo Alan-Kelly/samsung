@@ -33,6 +33,7 @@ dataX$Subject<-subj$V1
 dataSamsung<-rbind(data, dataX)
 dim(dataSamsung)
 
+
 ## Select and combine the columns with "std", "mean", Subject and Activity data
 library(dplyr)
 dataSamsung<- tbl_df(dataSamsung)
@@ -41,17 +42,20 @@ tempmean<-select(dataSamsung, contains("mean"))
 temp<-select(dataSamsung, Subject,Activity)
 Samsung<-cbind(temp,tempstd,tempmean)
 
-## Apply Activity labels to the Activity column data
+## Apply Activity labels to the Activity column data and tidy the variable names
 Samsung$Activity<-gsub("1", "walking",Samsung$Activity)
 Samsung$Activity<-gsub("2", "walking_upstairs",Samsung$Activity)
 Samsung$Activity<-gsub("3", "walking_downstairs",Samsung$Activity)
 Samsung$Activity<-gsub("4", "sitting",Samsung$Activity)
 Samsung$Activity<-gsub("5", "standing",Samsung$Activity)
 Samsung$Activity<-gsub("6", "laying",Samsung$Activity)
+names(Samsung)<-tolower(names(Samsung))
+names(Samsung)<-gsub("\\()","",names(Samsung))
 
 ## group by activity and subject and calculate mean of measurements
 by_activity<-group_by(Samsung,Activity,Subject)
 tidySamsung<-summarise_each(by_activity,funs(mean))
+write.table(tidySamsung, "tidySamsung.txt",row.name=FALSE)
 
 
 
