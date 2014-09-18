@@ -1,37 +1,41 @@
 activity_labels.txt 	values corresponding to the 6 activities	
-      1  WALKING
+                 	1  WALKING
 			2  WALKING_UPSTAIRS
 			3  WALKING_DOWNSTAIRS 
 			4  SITTING
-	    5  STANDING 
+	            	5  STANDING 
 			6  LAYING     
 			The original data has the numeric data, the tidy data has the character labels applied.
 
 dataSamsung		combined test and train data set with column names added including 2 columns for Activity and Subject
-              The Activity column has the numeric values. The Subject colum has a numeric identifer between 1 and 30 for every row.
+                        The Activity column has the numeric values. The Subject colum has a numeric identifer between 1 and 30 for every row.
 
 features.txt		variable names for all columns in X_test  file (and X_train)
 			These variable names were applied to the variables in X_test and stored in dataSamsung. 
 			These variables are described in the features_info.txt file.
                                         
-Samsung		data set which is reduced to those columns with mean and std deviation data plus Activity and Subject identifiers
-          This dataset is a subset of dataSamsung
+Samsung		        data set which is reduced to those columns with mean and std deviation data plus Activity and Subject identifiers
+                        This dataset is a subset of dataSamsung
 
-subject_test.txt		identifies the subject corresponding to each row of X_test
-                    This variable was merged with X_test to apply the Subject identifier to each row.
+subject_test.txt	identifies the subject corresponding to each row of X_test
+                        This variable was merged with X_test to apply the Subject identifier to each row.
 
-subject_train.txt		identifies the subject corresponding to each row of X_train
-			 This variable was merged with X_train to apply the Subject identifier to each row.
+subject_train.txt	identifies the subject corresponding to each row of X_train
+			This variable was merged with X_train to apply the Subject identifier to each row.
 
-tidySamsung		Samsung dataset grouped by activity and subject and mean applied to the measurements.
-			This tidy data set is grouped and has mean applied
+tidySamsung		this is the Samsung  tidy dataset. grouped by activity and subject and mean applied to the measurements.
+			This  data set is grouped by Activity and Subject.
+			Mean has been applied to all the original measurements in Samsung to create the data for each of the measurement variables in this file.
+			All variables from column 3 to 88  are numeric mean calculations for the Activity/Subject group pairs
+			The Subject variable is an integer between 1 and 30.
+			The Activity variable is a character string.
 
 X_test.txt		contains all 561 measurements  for the test subjects
 
 X_train.txt		contains all 561 measurements  for the train subjects
 
 y_test.txt		identifies the Activity corresponding to each row in X_test
-		        	This variable was used to populate the Activity variable in dataSamsung for the test data rows
+			This variable was used to populate the Activity variable in dataSamsung for the test data rows
 
 y_train.txt		identifies the Activity corresponding to each row in X_train
-		        	This variable was used to populate the Activity variable in dataSamsung for the train data rows
+			This variable was used to populate the Activity variable in dataSamsung for the train data rows
