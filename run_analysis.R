@@ -53,7 +53,7 @@ names(Samsung)<-tolower(names(Samsung))
 names(Samsung)<-gsub("\\()","",names(Samsung))
 
 ## group by activity and subject and calculate mean of measurements
-by_activity<-group_by(Samsung,Activity,Subject)
+by_activity<-group_by(Samsung,activity,subject)
 tidySamsung<-summarise_each(by_activity,funs(mean))
 write.table(tidySamsung, "tidySamsung.txt",row.name=FALSE)
 
