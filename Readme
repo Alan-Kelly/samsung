@@ -1,15 +1,21 @@
 The 3 test files can be read into R (using read.table) and you will notice that they each have the same number of rows (2947).
-y_test.txt has a single column with values 1 to 6, these values are listed in the activity_labels.txt file with the associated activity,  hence this is clearly the Activity corresponding to each row in the X_test.txt file.
-The variable names for the X data file are found in the features.txt file. This was read into R and the columns names in X can be renamed with the values from the features.txt file.
-The subject_test.txt  has a single column with 9 values between 2 and 24 so clearly corresponds to the the Subject identifier for each row in X_test.txt.  Two new columns can be added to the X file in order to incorporate the corresponding Subject identifier and Activity identifier for each row in X.
-Hence these 4  files can be merged to create the complete Test dataset.
+y_test.txt has a single column with values 1 to 6, these values are listed in the activity_labels.txt file with the associated activity.
+Hence this is clearly the Activity corresponding to each row in the X_test.txt file.
+The variable names for the X data file are found in the features.txt file.
+This was read into R and the columns names in X can be renamed with the values from the features.txt file.
+The subject_test.txt  has a single column with 9 values between 2 and 24 so clearly corresponds to the the Subject identifier for each row in X_test.txt.
+Two new columns can be added to the X file in order to incorporate the corresponding Subject identifier and Activity identifier for each row in X.
+Hence the above 4  files can be merged to create the complete Test dataset.
 
-The above is repeated for the training dataset and the two data sets can then be combined with a simple rbind. The above is graphically represented below which can be found on the discussion forum.
-
-
+The above is repeated for the training dataset and the two data sets can then be combined with a simple rbind. 
+The above is graphically represented in a nice diagram on the discussion forum see:
 ref: David Hood   https://class.coursera.org/getdata-007/forum/thread?thread_id=49
 
 
-The next step is to use the dplyr package to filter the columns to reduce the dataset to only the measurements on the mean and standard deviation for each measurement. gsub can be used to replace the activity labels (1 to 6) with  their descriptive labels as specified in the activity_labels file.
+In the next step, use the dplyr package.
+Filter the columns to reduce the dataset to only the measurements on the mean and standard deviation for each measurement.
+Use gsub to replace the activity labels (1 to 6) with  their descriptive labels as specified in the activity_labels file. 
+The variable names should be tidied by making all lower case and by removing the brackets.
 
-Finally create a tidy data set with the average of each variable for each activity and each subject. This can be done using the dplyr package to group by activity and subject and apply the mean function to the measurements using the summarise_each function
+Finally create a tidy data set with the average of each variable for each activity and each subject.
+Group by activity and subject and apply the mean function to the measurements using the summarise_each function.
